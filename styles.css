@@ -24,6 +24,7 @@ h1 {
   width: 70%;
 }
 .cart-section {
+  font-weight: 600;
   position: fixed;
   top: 20px; 
   right: 20px;
@@ -55,6 +56,12 @@ h1 {
   text-align: left; 
 
 }
+.cart-items li {
+  display: flex;
+  justify-content: space-between; /* Elemanları sağa sola yay */
+  align-items:center; /* Dikey hizalamayı ayarla */
+  margin-bottom: 10px; /* Elemanlar arasındaki boşluk */
+}
 
 #order-button {
   font-size: 14px; 
@@ -69,6 +76,25 @@ h1 {
 }
 #order-button:hover {
   background-color: hsl(14, 65%, 42%); 
+}
+.remove-button {
+  background-color: transparent; /* Düzgün görünüm için */
+  color: rgb(123, 55, 3);
+  border: 1px solid rgb(123, 55, 3);
+  border-radius: 50%; /* Daire yapmak için */
+ 
+  
+  cursor: pointer;
+  font-size: 16px; /* Daha büyük font boyutu */
+  text-align: center;
+  line-height: 20px; /* Dairenin yüksekliği ile aynı olmalı */
+  margin-left: 10px; 
+}
+
+.remove-button:hover {
+  background-color: transparent; /* Düzgün görünüm için */
+  color: rgb(0, 0, 0);
+  border: 1px solid rgb(0, 0, 0);
 }
 
 .hidden {
@@ -151,6 +177,30 @@ h5:last-of-type {
   text-align: center;
 }
 
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.popup.hidden {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
@@ -183,16 +233,20 @@ h5:last-of-type {
 }
 
 @media (max-width: 480px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
   .desserts-section {
     grid-template-columns: 1fr;
     grid-gap: 10px;
   }
 
   .cart-section {
+    position: static; /* Sayfa akışına göre konumlandır */
     width: 90%;
     margin-top: 10px;
-   
-    
   }
 
   h1 {
